@@ -1,0 +1,45 @@
+---
+title: "Preface and Chapter 1"
+author: "Ben Marmont"
+date: '2023-03-08'
+output: beamer_presentation
+---
+# The Textbook: R4DS
+
+## Welcome
+- This book will help you develope the fundamental Rskills
+  - Grammar of graphics (we are starting this today!)
+  - Literate programming
+  - Reproducible research
+  - Managing cognitive resources
+- Wrangle
+- Visualise
+- Explore
+- Communicate 
+
+## The second edition
+- Changed the order and tweaked the content
+to make it easier to learn, and catch up to date. 
+- Major changes (why you shouldn't swap between versions)
+  - Whole game
+  - Visualise
+  - Transform
+  - Import
+  - Program
+    - Base r
+  - Modelling
+  - Communicate
+  
+## Chapter 1
+  - Definition of data science: "transform raw data into understanding, insight and knowledge."
+  - Data science process (what we will learn)
+    - Import
+    - Tidy
+    - Transform
+    - Wrangle
+    - Visualisation
+    - Models
+    - Communication
+    - Programming
+    
+  
