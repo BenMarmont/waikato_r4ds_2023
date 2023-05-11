@@ -19,11 +19,11 @@ drop_na()
 # Homework: download and print the dplyr and ggplot cheatsheets
 
 treatment <- tribble(
-  ~ person, ~ treament, ~ response,
-  "Derrick Whitmore", 1, 7,
-  NA, 2, 10,
-  NA, 3, NA,
-  "Katherine Burke", 1, 4
+  ~ person,           ~ treament, ~ response,
+  "Derrick Whitmore", 1,            7,
+  NA,                 2,            10,
+  NA,                 3,            NA,
+  "Katherine Burke",  1,            4
   )
 
 treatment |> fill(everything())
