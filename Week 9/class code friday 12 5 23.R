@@ -92,7 +92,16 @@ read_excel("data/penguins.xlsx")
 
 excel_sheets("Week 9/students.xlsx")
 
-# couldn't find the palmer penguins xlsx anywhere, look for it or raise an issue
+# added the palmer penguin sheet example after the fact, couldn't find the xlsx
+# during class
+
+# call sheet by position
+read_excel("Week 9/penguins.xlsx ", sheet = 2)
+# or, call sheet by name
+read_excel("Week 9/penguins.xlsx", sheet = "Biscoe Island")
+
+# you can print sheet names
+readxl::excel_sheets("Week 9/penguins.xlsx ")
 
 readxl_example()
 
