@@ -1,0 +1,81 @@
+---
+title: "Intro to R4DS"
+author: "Ben Marmont"
+date: "08/03/2023"
+output:
+  beamer_presentation: default
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## WSAFE589-23A (HAM)
+
+### R for Data Science
+
+## About me
+
+Ben Marmont (Lecturer)
+
+-   Economist at DairyNZ
+-   Master of Management (Economics) from University of Waikato
+-   Carpentries qualified instructor (R)
+
+## About the course
+
+-   Schedule
+    -   All online, recordings available
+    -   Email to make an appointment for office hours
+
+![](schedulev2.png)
+
+## Content
+
+-   R for Data Science Second edition ([R4DS](https://r4ds.hadley.nz/))
+    -   [Hadley Wickham](https://hadley.nz/) is from NZ and is now the Chief Scientist at RStudio (hopefully you recognize that name!) and author of four open access books to help people learn R all the way through to advanced extension skills.
+-   Data science in the tidyverse
+
+![](tidyverse.png)
+
+## Pedagogy
+
+[Inspired by the carpentries](https://orchid00.github.io/The_Carpentries_info/overview-of-carpentries-pedagogic-model.html)
+
+-   Active learning (practice) is key, this course will have minimal components where I speak to you i.e. lecture. Instead, we will utilise 'live coding'.
+    -   Live coding will show you my workflow, my mistakes (everyone makes them) and how I troubleshoot them!
+    -   When you run into difficulty utilise the chat in class, communicating with others is key to understanding
+    -   Spaced retrieval
+    -   Managed cognitive load
+
+## Assessments
+
+These will be made available as we get closer to the time, more information on moodle.
+
+-   1: Basic Data Analysis, due 3/4/23
+-   2: Visualisation, due 17/5/23
+-   3: Online Timed Assessment, 48 hours 9/6/23 - 11/6/23
+-   4: Data retrieval and modelling, due 22/6/23
+
+## How to find help?
+
+-   Collaboration forum (moodle)
+-   The chat during lectures (on wednesday ask your peers, on Michael will be in the chat)
+-   Chat GPT
+-   Office hours (email Michael for appointment)
+
+## Resources (links imbedded):
+
+-   Moodle [log in here](https://www.waikato.ac.nz/)
+-   [Textbook](https://r4ds.hadley.nz/)
+    -   The first iteration of the textbook has a significantly different order of content
+-   Ben's [GitHub repository](https://github.com/BenMarmont/waikato_r4ds_2023)
+
+## What about you?
+
+-   Round table:
+    -   Name
+    -   Role
+    -   Reason for doing this course

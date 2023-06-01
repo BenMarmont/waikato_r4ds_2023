@@ -1,0 +1,45 @@
+---
+title: "Assessment 2 - Data Analysis"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions:
+
+Use the **tidyverse** (and other libraries at your discretion).
+
+Download the 'NZ nitrate leaching from livestock data set'.
+
+Open the following link and click the download button, then move the data to your working directory.
+
+<https://data.mfe.govt.nz/document/21937-nitrate-leaching-from-livestock-time-series-19902017-raw-data/>
+
+Alternatively, you can find the data set on moodle to download and move it. It is 
+also acceptable to download it via URL from the course GitHub repository. 
+
+All tasks equally weighted, and the whole assignment is worth 25% of the final grade.
+
+This data set records the nitrate leaching for different stock classes, for each region, over time.
+
+
+# Due: 17/05/2023
+# Tasks:
+
+1)  Import the data and call it **"nitrate_leaching"**. Then, change the relevant column names to **"Region"**, **"Livestock_type"**, **"Date"**, **"Leaching"**.
+
+2)  How many unique values for livestock type are there? Choose one and plot it over time.
+
+3)  Create 2 new columns, one for decade and one for century based on the date column. Both of these columns should contain 4-digit integers (i.e. **1990**, *or* **1900**).
+
+4)  Use a plot or table to determine total leaching for your choose stock class for the last decade.
+
+5)  Find the year with the highest and lowest leaching per stock class in your chosen region.
+
+6)  Now that you are more familiar with the data set, make a hypothesis about any relationship you could explore (in this data set). State the hypothesis in your script using a comment ("#"). Now test your hypothesis in R. Leave another comment explaining what your did/tried to do and whether your exploration indicates your hypothesis is correct or not.   
