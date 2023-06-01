@@ -1,0 +1,135 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+bibliography: references.bib
+params:
+  my_class: "suv"
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+
+smaller <- diamonds |> 
+  filter(carat < 2.5)
+```
+
+## Quarto
+
+Today we are working through the use of Quarto to create documents to communicate the findings generated with data science.
+
+How to quote:
+
+[@marmont2022]
+
+italics and boldened ***This guy is full of crap***
+
+how to hyperlink [R 4 Data Science 2e](https://r4ds.hadley.nz/quarto.html)
+
+Overview of formatting options:
+
+## header
+
+*italic*
+
+**bold**
+
+***bold and italic***
+
+~~strike~~
+
+`code`
+
+superscript^2^
+
+subscript~2~
+
+# header1
+
+## header2
+
+### header3
+
+#### header4
+
+##### header5
+
+###### header6
+
+List formatting: - bulleted list
+
+-   second item
+
+-   second item level 2
+
+1.  numbered list
+2.  numbered list
+3.  numbered list level 2
+
+# url
+
+<https://r4ds.hadley.nz/quarto.html>
+
+# image insertion
+
+
+# table insertion
+
+| x   | y   |
+|-----|-----|
+| a   | 1   |
+| b   | 2   |
+
+STOP: Insert a footnote, pagebreak, and quote with the visual insert tool then look into the source editor to see how to achieve it manually.
+
+[^1]
+
+[^1]: this is a footnote
+
+------------------------------------------------------------------------
+
+> This is a quote
+
+Continuing ctrl + alt + I is the shortcut for a code chunk
+
+```{r}
+# this is a comment in our code
+```
+
+```{r}
+#| label: simple-addition
+
+1 + 1
+
+# you can manually enter a code chunk by typing the backticks and curly braces
+```
+
+```{r}
+#| label: chunk_options
+#| eval: true
+#| include: false
+#| echo: false
+#| results: false
+#| fig-show: hide
+#| error: false
+```
+
+To set global chunk options do it in the YAML under execute like: execute: echo: false error: false
+
+`r nrow(diamonds)`
+
+We know that there are `r nrow(diamonds)` observations in the data set and we know that there are `r nrow(diamonds) - nrow(smaller)` diamonds that are bigger than 2.5 carats
+
+```{r}
+mtcars
+```
+
+
+```{r}
+mpg |> 
+  filter(class == params$my_class) |> 
+  ggplot(aes(x = displ, y = hwy)) +
+    geom_point()
+```

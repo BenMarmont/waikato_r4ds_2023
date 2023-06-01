@@ -3,9 +3,9 @@ title: "Intro to R4DS"
 author: "Ben Marmont"
 date: "08/03/2023"
 output:
-  beamer_presentation: default
-  slidy_presentation: default
   ioslides_presentation: default
+  slidy_presentation: default
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}

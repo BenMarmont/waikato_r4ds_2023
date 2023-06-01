@@ -1,0 +1,35 @@
+---
+title: "John Smith CV"
+format: html
+editor: visual
+---
+
+## Contact Details
+
+| Phone Number   | Email                 | LinkedIn                                        | Twitter                                    |
+|-----------------|-----------------|---------------------|------------------|
+| +64 21 123 456 | john.smith\@gmail.com | [LinkedIn](https://www.linkedin.com/in/jsmith/) | [Twitter](https://www.twitter.com/jsmith/) |
+
+## Personal Objective
+
+I am a motivated self-starter with proven success.
+
+## Experience
+
+-   I worked at the Crusty Crab for 5 years making crabbie patties
+
+-   I worked at the Chum Bucket for 2 years with a tyrannical boss who was married to a computer
+
+## Education
+
+-   I studied at Waikato University in 2015 where I received a Bachelor of Business (Data Science) and then went on to do a Postgraduate-Diploma in Data Science.
+
+-   I studied how to make crabbie patties on a professional course facilitated by Spongebob Squarepants
+
+## Skills
+
+-   Cash handling
+
+-   Food safety
+
+-   Customer service
