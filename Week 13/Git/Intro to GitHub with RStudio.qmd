@@ -1,0 +1,213 @@
+---
+title: "Intro to Git and GitHub"
+format: revealjs
+editor: visual
+---
+
+## Requirements
+
+-   R
+
+-   RStudio
+
+-   Git
+
+-   GitHub account
+
+You should have the first two downloaded. You will need to [download git](https://gitforwindows.org/) if you haven't already, and [create a github account](https://github.com/).
+
+## Why bother learning about Git and GitHub?
+
+-   Source control
+
+-   Reproducebility
+
+-   Collaboration
+
+## It's straightforward, right?
+
+Unfortunately not. Fortunately, we only learning data science not hard core programming so we only need some of the functionality offered by git and github.
+
+ 
+
+By the end of today you should know enough that the cheatsheets, and google to fill in any blanks about the basics.
+
+## What is git?
+
+[Git](https://gitforwindows.org/) is a version control system employed largely by programmers for collaboration.
+
+ 
+
+It was developed in 2005 by the creator of the Linux operating system (it has been around a long time, and is open source)
+
+## What is GitHub?
+
+[GitHub](https://github.com/) is a cloud-based hosting service for git repositories. It is operated by a private company, which is owned by Microsoft.
+
+ 
+
+It leverages the use of version control and collaboration aspects of git by augmenting with external hosting to make code version controlled code accessible to any collaborators with an internet connection.
+
+## Getting started with Git
+
+-   First we need to ensure git is installed
+-   Note that instructions for git should be written in the terminal, not the console
+-   Use "which git" to check it is installed, and the version with git --vers
+
+```{r, eval=FALSE, echo=TRUE}
+which git
+git --vers
+```
+
+-   Note that the git commands begin with 'git'
+
+# Getting started with GitHub
+
+-   Once per machine you will need to link your GitHub account with RStudio.
+-   To do so you will need a personalised access token
+-   We will use a new package to manage GitHub credentials
+
+## Generating an access token
+
+-   The following code with take you to the GitHub page where you can generate a personalised access token. Alternatively you can navigate there yourself using settings.
+-   Describe the use of the PAT in the note section, you can also change the scope and duration of the PAT
+-   Keep the GitHub token window open, and copy the token
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("usethis")
+library(usethis)
+usethis::create_github_token()
+```
+
+## Using the access token
+
+-   Run the gitcreds_set function to be asked for a GitHub password, paste in the token.
+
+```{r, eval=FALSE, echo=TRUE}
+gitcreds::gitcreds_set()
+```
+
+  All going well your RStudio should now be linked with GitHub!
+
+## Introduce yourself to git
+
+Check credentials (in terminal). - In the terminal you need to right click to paste, or use shift + insert (on windows) rather than the traditional shortcut for copy and paste.
+
+```{r}
+#| eval: false
+#| echo: true
+
+git config --global user.name
+git config --global user.email
+```
+
+-   You haven't introduced yourself yet!
+
+```{r}
+#| eval: false
+#| echo: true
+
+git config --global user.name "BenMarmont"
+git config --global user.email "ben.marmont@dairynz.co.nz"
+# or 
+git config --list
+```
+
+# But why bother?
+
+![https://xkcd.com/1597/](https://imgs.xkcd.com/comics/git_2x.png)
+
+## How this all works
+
+[![MounaBelaid](https://github.com/MounaBelaid/First-Steps-in-Learning-the-Use-of-Git-and-GitHub-in-RStudio/blob/main/img/Git-process7.png?raw=true)](https://github.com/MounaBelaid/First-Steps-in-Learning-the-Use-of-Git-and-GitHub-in-RStudio/blob/main/img/Git-process7.png)
+
+## Zoomed in
+
+![](git%20areas.jpeg)
+
+## Basic Definitions
+
+Lets define a few key terms (there are many more functions of git, but these are the building blocks)[^1]
+
+[^1]: https://docs.github.com/en/get-started/quickstart/github-glossary
+
+-   Stage: Prepare for a commit. Git only commits changes relative to previous versions, to stage is to prepare the differences.
+
+-   Commit: A revision to one, or several files akin to saving. It creates a snapshot of your code at a point in time which can be reverted to.
+
+------------------------------------------------------------------------
+
+Continued [^2] 
+
+[^2]: https://docs.github.com/en/get-started/quickstart/github-glossary
+
+-   Push: Send your committed changes to the online repository so that collaborators can pull them.
+
+-   Pull: Fetch and merge changes someone else has made.
+
+-   Clone: Copy of a repository that lives on your computer, but it can still be connected to the online version.
+
+-   Fork: A personal copy of someone else's repository. You can make changes to your copy without changing the original copy. You can also set up a pull request so that you can keep up to date with their repository.
+
+# Common applications
+
+Here a couple of github interactions you will have.
+
+## Creating new Rproject with version control
+
+-   Create project wizard
+-   Select git
+-   Go to git home page, create repo
+-   Copy relevant instructions
+-   Paste instructions into terminal
+
+## Local git repo, not on GitHub
+
+![Happy git with R](https://happygitwithr.com/img/no-github.jpeg){width="204"}
+
+Using the command line:
+
+```{r}
+#| eval: false
+#| echo: true
+git init
+usethis::use_git()
+```
+
+Or, do it when creating a Rproject (make sure the git repository box is checked)
+
+## Clone an existing GitHub repository into an RStudio project
+
+![](https://happygitwithr.com/img/ours-you.jpeg){width="204"}
+
+-   Get link from GitHub
+-   Open new project wizard, select version control \> git
+-   Paste URL
+
+## Someone else's repository
+
+![](https://happygitwithr.com/img/ours-them.jpeg){width="204"}
+
+-   Fork on git hub
+-   Follow the clone steps on previous slide (new project, paste URL)
+
+## Tips and tricks
+
+-   You can use the .gitignore file to specifiy what should be ignored when commitig i.e. sensitive or large files
+-   If it breaks, refer to the XKCD comic. Burn current repo!
+-   You can see the differences in a commit relative to the previous
+
+## Workflows
+
+-   Commit early and often, at least stage.
+
+-   Write helpful commit messages
+
+-   Time travel by reading previous commits
+
+## What happens when you get errors (you will)
+
+-   Google
+-   AI
+-   Look at the differences in each commit
+-   Refer to a book [(Happy git and github for the useR)](https://happygitwithr.com/index.html)
