@@ -1,0 +1,131 @@
+---
+title: "Tables and Regressions"
+format: pdf
+editor: visual
+---
+
+## Tables
+
+So far we have only looked at tables in the console like so
+
+```{r}
+library(tidyverse)
+mtcars
+```
+
+But we can create publication quality tables in R too, using flextable
+
+```{r}
+## Flextable--------------------------------------------------------------------
+
+#install.packages("flextable")
+library(flextable)
+
+mtcars
+
+# First lets turn the row names into columns called make and model. Note that currently
+# they are formatted as rownames rather than as a column which are treated differently
+
+mtcars %>% 
+  rownames_to_column(var = "Model") %>% 
+  separate(Model, c("make", "model"))
+
+# Now lets only select those columns relating to engine specifications and other 
+#  specifications
+mtcars %>% 
+  select(cyl, hp, disp, mpg, wt, gear)
+
+# Combine both steps and send to flextable
+mtcars %>% 
+  rownames_to_column(var = "Model") %>% 
+  select(Model, cyl, hp, disp, mpg, wt, gear) %>% 
+  separate(Model, c("make", "model")) %>% 
+  flextable()
+
+# This is ok, but we can add headers and footers to make this better
+
+mtcars %>% 
+  rownames_to_column(var = "Model") %>% 
+  select(Model, cyl, hp, disp, mpg, wt, gear) %>% 
+  separate(Model, c("make", "model")) %>% 
+  flextable() %>% 
+  add_header_row(values = c("Car","Engine specifications", "Other physical specifications"), 
+                 colwidths = c(2,3,3)) %>%   
+  add_footer_lines("mtcars data set showing headers and footers in flextable")
+
+# We can even add themes to further improve 
+mtcars %>% 
+rownames_to_column(var = "Model") %>% 
+  select(Model, cyl, hp, disp, mpg, wt, gear) %>% 
+  separate(Model, c("make", "model")) %>% 
+  flextable() %>% 
+  add_header_row(values = c("Car","Engine specifications", "Other physical specifications"), 
+                 colwidths = c(2,3,3)) %>%   
+  add_footer_lines("mtcars data set showing headers and footers in flextable") %>% 
+  theme_zebra() 
+
+# https://ardata-fr.github.io/flextable-book/design.html
+# Show some of the very pretty table sin the documentation
+
+
+```
+
+If that doesn't work for you, you can try the GT package.
+
+```{r}
+## gt---------------------------------------------------------------------------
+
+#install.packages("gt")
+library(gt)
+
+mtcars %>%
+  rownames_to_column(var = "model") %>% 
+  select(model, mpg) %>% 
+  gt()
+
+```
+
+You might be wondering what is the point of covering two ways to create tables, and it comes down to it depends what you are doing. GT lets you compose a table by putting together various parts of the table, and mainly supports html output while Flextable is the most flexible in terms of output at the cost of customisability[^1].
+
+[^1]: https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html
+
+## Regressions
+
+Lets create a basic linear regression to investigate hour cut, clarity, and carat impact the price of diamonds in the diamonds dataset.
+
+```{r}
+library(tidyverse)
+
+diamonds
+
+diamond_linear_model <- lm(price ~ cut + color + clarity + carat, data = diamonds)
+
+diamond_linear_model
+```
+
+We can get an idea about the models performance by calling it, but we can do one better by making an html table we could insert into a document.
+
+```{r}
+# install.packages("sjPlot")
+# we will use this package to visualise 
+library(sjPlot)
+
+summary(diamond_linear_model)
+
+#default tab model
+tab_model(summary(diamond_linear_model))
+
+# exploring 
+tab_model(summary(diamond_linear_model),
+          p.val = "wald", # pvalue
+          show.df = F,    # degrees of freedom
+          digits = 5,     # decimal places
+          digits.re = 5,  # decimal places?
+          show.ci=F,      # confidence interval
+          show.icc = F,   #  
+          show.stat = F #,
+          #file = "RevlmextendedWTAVG.html"
+          )
+
+# pvalue is a stat test
+```
